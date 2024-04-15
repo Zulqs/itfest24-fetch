@@ -1,0 +1,21 @@
+// create a basic prisma schema with a user model
+generator client {
+    provider = "prisma-client-js"
+}
+
+datasource db {
+    provider = "postgresql"
+    url = env("DATABASE_URL")
+}
+
+model User {
+    id        String   @id @default(cuid())
+    nim     String   @unique
+    nama      String?
+    fakultas String
+    prodi    String
+    perwakilan String
+    angkatan String
+    status Boolean
+    divisi String
+}

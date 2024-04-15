@@ -17,7 +17,7 @@ const Getdata = () => {
         defaultValues: {
             nim: '',},
     });
-    
+    const [nimNotFound, setNimNotFound] = React.useState<boolean>(false);
     const onSubmit = async (values: z.infer<typeof FormSchema>) => {
         const signIndata = await signIn('credentials', {
         nim: values.nim,
@@ -25,6 +25,7 @@ const Getdata = () => {
         });
         
         if (signIndata?.error) {
+            setNimNotFound(true);
             console.log(signIndata.error);
         } else {
             router.push('/hasil');
@@ -42,12 +43,13 @@ const Getdata = () => {
                     </div>
                     <div>
                         <label className='text-white text-sm font-semibold'
-                        htmlFor="">Nomor Induk Mahasiswa</label>
+                        htmlFor="">Nomor Induk Mahasiswa </label>
                         <input type="text"
                         className='bg-white placeholder:text-sm placeholder:font-normal font-bold bg-opacity-20 mt-2 inpu appearance-none rounded w-full py-2 px-3 text-white text-opacity-100 leading-tight border border-none focus:shadow-outline focus:border-white focus:border' 
                         required
                         placeholder='Nomor Induk Mahasiswa IPB University'
                         {...form.register('nim')}/>
+                        {nimNotFound && <p className="text-red-600 mt-2 -mb-2 text-xs">*NIM tidak terdaftar / tidak valid</p>}
                     </div>
                     <div className='flex flex-row mt-6'>
                         <button id='hasil' 
@@ -57,6 +59,7 @@ const Getdata = () => {
                         <p className='md:text-[10px] md:flex hidden text-[#7a74c9] mt-auto ml-auto'>PENGUMUMAN HASIL SELEKSI IT FEST 2024</p>
                     </div>
                 </form>
+                
         </div>
     )
 }

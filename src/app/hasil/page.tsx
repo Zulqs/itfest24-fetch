@@ -1,13 +1,14 @@
 import React from "react";
 import { authOptions } from '@/lib/auth';
 import { getServerSession } from "next-auth";
+import { redirect } from "next/navigation";
 
 const Hasil = async () => {
     const session = await getServerSession(authOptions);
     console.log(session);
-    //if (!session.isLoggedIn) {
-    //    redirect("/");
-    //}
+    if (!session) {
+        redirect("/");
+    }
     
 
     return (

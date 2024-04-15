@@ -54,7 +54,7 @@ const Getdata = () => {
                         className='bg-[#FBBC04] rounded-full p-2 text-xs font-bold text-[#413101] py-2 px-3'
                         type='submit'>
                             LIHAT HASIL SELEKSI</button>
-                        <p className='text-[10px] text-[#7a74c9] mt-auto ml-auto'>PENGUMUMAN HASIL SELEKSI IT FEST 2024</p>
+                        <p className='md:text-[10px] md:flex hidden text-[#7a74c9] mt-auto ml-auto'>PENGUMUMAN HASIL SELEKSI IT FEST 2024</p>
                     </div>
                 </form>
         </div>

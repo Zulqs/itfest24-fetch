@@ -30,9 +30,9 @@ export const authOptions: NextAuthOptions = {
             }
 
             return {
-                id: existingUser.id ,
+                id: existingUser.id,
                 nim: existingUser.nim,
-                nama: existingUser.nama,
+                nama: existingUser.nama + '',
                 status: existingUser.status,
                 divisi: existingUser.divisi,
                 fakultas: existingUser.fakultas,

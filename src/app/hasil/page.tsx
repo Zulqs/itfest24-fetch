@@ -11,7 +11,7 @@ const Hasil = async () => {
     
 
     return (
-        <div className="flex h-screen xl:px-60 lg:px-36 md:px-5">
+        <div className="flex h-screen xl:px-60 lg:px-36 md:px-5 2xl:px-96">
             <div className="flex flex-col bg-white bg-opacity-10 rounded-sm m-auto">
                 <div className={`flex flex-col md:flex-row justify-between px-5 py-6 md:bg-gradient-to-r bg-gradient-to-bl ${session?.user.status ? "from-[#e7ae04]" : "from-red-700" } to-black`}>
                     <div className="flex flex-col">

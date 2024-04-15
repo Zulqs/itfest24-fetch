@@ -25,7 +25,7 @@ const Hasil = async () => {
                         <p className="font-bold text-sm">NIM {session?.user.nim}</p>
                         <p className="font-bold text-3xl my-1">{session?.user.nama}</p>
                         <p className="font-light">
-                        {session?.user.divisi ? `${session?.user.divisi}` : ''}
+                        {session?.user.divisi ? `DIVISI ${session?.user.divisi}` : ''}
                         </p>
                     </div>
                 </div>

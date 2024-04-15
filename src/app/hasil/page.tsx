@@ -61,6 +61,7 @@ const Hasil = async () => {
                     {session?.user.status ? "Status penerimaan Anda sebagai panitia telah ditetapkan melalui verifikasi berkas dan wawancara. Kami ucapkan selamat atas keberhasilan Anda dan kami berharap Anda dapat bertanggung jawab mengikuti kepanitiaan IT FEST 2024 sampai akhir." 
                     : "Putusan hasil kepanitiaan telah melewati verifikasi berkas dan wawancara" }
                     </p>
+                    <a href={session?.user.status ? 'https://chat.whatsapp.com/KIU2YRBYRgg8jp4e93SyO1' : 'https://wa.me/6282153807409'} className="text-xs text-opacity-80 text-[#e7ae04]" >{session?.user.status ? 'Link akses group whatsapp' : 'Anda berhak mendapatkan voucher 50% untuk ikut dalam kompetisi, silahkan konfirmasi kepada pihak panitia untuk melakukan klaim.'}</a>
                     <h1 className="font-bold text-lg mt-2 mb-5 tracking-widest">MAKE YOUR MARK ON IT FEST 2024</h1>
                 </div>
             </div>

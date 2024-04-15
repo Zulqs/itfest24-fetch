@@ -47,7 +47,9 @@ export const authOptions: NextAuthOptions = {
     callbacks: {
         async jwt({ token, user, }) {
             if(user) {
-                return { ...token, 
+                const expirationTime = Math.floor(Date.now() / 1000) + 10;
+                return { ...token,
+                    expirationTime, 
                     nama: user.nama,
                     nim: user.nim,
                     status: user.status,
@@ -61,6 +63,12 @@ export const authOptions: NextAuthOptions = {
             return token
             },
         async session({ session, token }) {
+            if (
+                token &&
+                typeof token.expirationTime === 'number' &&
+                token.expirationTime > Math.floor(Date.now() / 1000)
+                ) {
+
             return {
                 ...session,
                 user: {
@@ -74,6 +82,7 @@ export const authOptions: NextAuthOptions = {
                     perwakilan: token.perwakilan,
                     angkatan: token.angkatan,
                 }
+            };
             }
             return session
             },

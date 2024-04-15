@@ -6,7 +6,7 @@ import { redirect } from "next/navigation";
 const Hasil = async () => {
     const session = await getServerSession(authOptions);
     console.log(session);
-    if (!session) {
+    if (!session?.user.nim) {
         redirect("/");
     }
     

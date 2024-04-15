@@ -58,7 +58,7 @@ const Hasil = async () => {
                 </div>
                 <div className="text-white px-5">
                     <p className="opacity-30 text-xs mt-8">
-                    {session?.user.status ? "Status penerimaan Anda sebagai panitia telah ditetapkan melalui verifikasi verkas dan wawancara. Kami ucapkan selamat atas keberhasilan Anda dan kami berharap Anda dapat bertanggung jawab mengikuti kepanitiaan IT FEST 2024 sampai akhir." 
+                    {session?.user.status ? "Status penerimaan Anda sebagai panitia telah ditetapkan melalui verifikasi berkas dan wawancara. Kami ucapkan selamat atas keberhasilan Anda dan kami berharap Anda dapat bertanggung jawab mengikuti kepanitiaan IT FEST 2024 sampai akhir." 
                     : "Putusan hasil kepanitiaan telah melewati verifikasi berkas dan wawancara" }
                     </p>
                     <h1 className="font-bold text-lg mt-2 mb-5 tracking-widest">MAKE YOUR MARK ON IT FEST 2024</h1>

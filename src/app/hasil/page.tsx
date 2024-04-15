@@ -12,11 +12,11 @@ const Hasil = async () => {
 
     return (
         <div className="flex h-screen bg-gradient-to-bl">
-            <div className="container flex flex-col bg-white bg-opacity-10 rounded-sm m-auto">
+            <div className="flex flex-col bg-white bg-opacity-10 rounded-sm m-auto">
                 <div className={`flex flex-row justify-between px-5 py-6 bg-gradient-to-r ${session?.user.status ? "from-[#e7ae04]" : "from-red-700" } to-black`}>
                     <div className="flex flex-col">
                         <p className={`text-white my-auto font-bold ${session?.user.status ? 'text-lg' : 'text-2xl'}`}>{session?.user.status ? "SELAMAT! ANDA DINYATAKAN LULUS SELEKSI IT FEST 2024" : "MAAF! ANDA DINYATAKAN TIDAK LULUS SELEKSI IT FEST 2024" }</p>
-                        <p className="font-light text-white text-sm">{session?.user.status ? "" : `Sebaik-baiknya orang yang tidak berhasil adalah orang yang belajar untuk menang di kesempatan berikutnya. ~Carl Sandburg`}</p>
+                        <p className="font-light text-white text-sm mr-8">{session?.user.status ? "" : `Sebaik-baiknya orang yang tidak berhasil adalah orang yang belajar untuk menang di kesempatan berikutnya. ~Carl Sandburg`}</p>
                     </div>
                     <a className='font-extrabold text-4xl text-transparent bg-clip-text bg-gradient-to-r from-[#FBBC04] via-white to-[#ACA6F8]'>IT FEST</a>
                 </div>

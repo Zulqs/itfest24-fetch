@@ -45,7 +45,7 @@ const Getdata = () => {
                         htmlFor="">Nomor Induk Mahasiswa</label>
                         <input type="text"
                         className='bg-white placeholder:text-sm placeholder:font-normal font-bold bg-opacity-20 mt-2 inpu appearance-none rounded w-full py-2 px-3 text-white text-opacity-100 leading-tight border border-none focus:shadow-outline focus:border-white focus:border' 
-                        required name="nim"
+                        required
                         placeholder='Nomor Induk Mahasiswa IPB University'
                         {...form.register('nim')}/>
                     </div>

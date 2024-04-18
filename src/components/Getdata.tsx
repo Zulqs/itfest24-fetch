@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import * as z from "zod";
 import {signIn} from "next-auth/react";
 import {zodResolver} from "@hookform/resolvers/zod";
@@ -11,6 +11,7 @@ const FormSchema = z.object({
     });
 
 const Getdata = () => {
+    const [isLoading, setIsLoading] = useState<boolean>(false)
     const router = useRouter();
     const form = useForm<z.infer<typeof FormSchema>>({
         resolver: zodResolver(FormSchema),
@@ -19,6 +20,7 @@ const Getdata = () => {
     });
     const [nimNotFound, setNimNotFound] = React.useState<boolean>(false);
     const onSubmit = async (values: z.infer<typeof FormSchema>) => {
+        setIsLoading(true)
         const signIndata = await signIn('credentials', {
         nim: values.nim,
         redirect: false,
@@ -27,10 +29,13 @@ const Getdata = () => {
         if (signIndata?.error) {
             setNimNotFound(true);
             console.log(signIndata.error);
+            setIsLoading(false)
         } else {
             router.push('/hasil');
+            setIsLoading(false);
         }
     };
+
     return (
         <div className="flex h-screen">
                 <form onSubmit={form.handleSubmit(onSubmit)} className='bg-white bg-opacity-10 rounded px-8 pt-6 pb-8 m-auto'>
@@ -53,13 +58,12 @@ const Getdata = () => {
                     </div>
                     <div className='flex flex-row mt-6'>
                         <button id='hasil' 
-                        className='bg-[#FBBC04] rounded-full p-2 text-xs font-bold text-[#413101] py-2 px-3'
-                        type='submit'>
-                            LIHAT HASIL SELEKSI</button>
+                        className={`${isLoading ? 'bg-[#b59639]' : 'bg-[#FBBC04]'}  rounded-full p-2 text-xs font-bold text-[#413101] py-2 px-3`}
+                        type='submit' disabled={isLoading}>
+                            {isLoading ? 'MENCARI DATA...' : 'LIHAT HASIL SELEKSI'}</button>
                         <p className='md:text-[10px] md:flex hidden text-[#7a74c9] mt-auto ml-auto'>PENGUMUMAN HASIL SELEKSI IT FEST 2024</p>
                     </div>
                 </form>
-                
         </div>
     )
 }
